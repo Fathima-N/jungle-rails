@@ -1,6 +1,8 @@
 <% @order.line_items.each do |line_item| %>
+<% total = 0 %>
+<% total += line_item.total_price %>
 
-<tr>
+  <tr>
     <td>
       <%= image_tag line_item.product.image.tiny %>
     </td>
@@ -20,3 +22,5 @@
     </td>
   </tr>
 <% end %>
+
+

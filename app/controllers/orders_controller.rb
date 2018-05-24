@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @total = total_price
   end
 
   def create
@@ -57,6 +58,14 @@ class OrdersController < ApplicationController
   end
 
   # returns total in cents not dollars (stripe uses cents as well)
+   def total_price
+    total = 0
+    @order.line_items.each do |line_item|
+      total += line_item.total_price
+    end
+    total
+  end
+
   def cart_total
     total = 0
     cart.each do |product_id, details|

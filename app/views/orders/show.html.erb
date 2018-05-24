@@ -1,8 +1,7 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-    <h1>Order #<%= @cart.total %></h1>
+    <h1>Order <%= @order.id %></h1>
   </header>
 
   <div class="order-summary jumbotron">
@@ -29,17 +28,24 @@
       <tfoot>
         <tr>
           <th colspan="4">
-            TOTAL:
+            TOTAL: 
           </th>
-          <th>
-           
-          </th>
+          <td>
+            <%= @total %>
+          </td>
+        </tr>
+        <tr>
+        <th colspan="4">
+            Email Address:
+        </th>
+          <td>
+             <%= @order.email %>
+          </td>
         </tr>
       </tfoot>
   	</table>
   </div>
 
- 
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
