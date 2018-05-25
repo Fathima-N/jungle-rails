@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for purchasing with Jungles!</h1>
+    <p> Here is your order summary:</p>
+      <br>
+
+      <% @order.line_items.each do |line_item| %>
+        <% total = 0 %>
+        <% total += line_item.total_price %>
+
+          <tr>
+            <td>
+              <%= image_tag line_item.product.image.tiny %>
+            </td>
+            <td>
+              <h4><%= line_item.product.name %></h4>
+              <br>
+              <p><%= line_item.product.description %></p>
+            </td>
+            <td>
+              <%= line_item.product.price %>
+            </td>
+            <td>
+              <%= line_item.quantity %>
+            </td>
+            <td>
+              <%= line_item.total_price %>
+            </td>
+          </tr>
+      <% end %>
+      
+    <td><%= @total %></td>
+
+    
+    <p>Thanks for purchasing and have a great day!</p>
+  </body>
+</html>
