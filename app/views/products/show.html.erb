@@ -28,7 +28,7 @@
 
       
   <h3>Reviews</h3>
-    <% @reviews.each do |review|  %>
+    <% @reviews.reverse_each do |review|  %>
     <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>User</dt>
@@ -54,7 +54,7 @@
       </p>
       <p>
         <%= f.label :rating %><br>
-        <%= f.select :rating, [1, 2, 3]%>
+        <%= f.select :rating, [1, 2, 3, 4, 5]%>
        
       </p>
       <p>
