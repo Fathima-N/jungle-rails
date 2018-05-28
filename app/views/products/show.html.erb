@@ -26,22 +26,45 @@
       </div>
     </div>
 
-
-
+      
+  <h3>Reviews</h3>
     <% @reviews.each do |review|  %>
-     
     <div class="col-sm-8">
         <dl class="dl-horizontal">
-          <h3>Reviews</h3>
           <dt>User</dt>
           <dd><%= review.user_id %></dd>  
           <dt>Comments</dt>
           <dd><%= review.description %></dd>
           <dt>Rating</dt>
           <dd><%= review.rating %></dd>
+
+          <% review.rating.to_i.times do %>
+          <span class="fa fa-star checked"></span>
+          <% end %>
+
         </dl>
       </div>
     <% end %>
+
+    <div class="col-sm-8">
+      <%= form_for [@product, Review.new], url: product_reviews_path(@product.id) do |f| %>
+      <p>
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </p>
+      <p>
+        <%= f.label :rating %><br>
+        <%= f.select :rating, [1, 2, 3]%>
+       
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+      <% end %>
+    </div>
+
+
+
 
   </article>
 

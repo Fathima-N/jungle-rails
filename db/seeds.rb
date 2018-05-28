@@ -139,13 +139,15 @@ User.destroy_all
 User.create!({
   name: "Bob",
   email: "bob@bob.com",
-  password_digest: "123"
+  password: "123",
+  password_confirmation: "123"
 })
 
 User.create!({
   name: "Mary",
   email: "mary@mary.com",
-  password_digest: "123"
+  password: "123",
+  password_confirmation: "123"
 })
 
 
